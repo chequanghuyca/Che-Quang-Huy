@@ -18,7 +18,9 @@ var sum_to_n_a = function (n) {
 // Using recursion
 // Recursion can be elegant and concise, but might be less efficient for large inputs due to function call overhead.
 var sum_to_n_b = function (n) {
-    if (n === 1) {
+    if (n === 0) {
+        return 0;
+    } else if (n === 1) {
         return 1;
     } else {
         return n + sum_to_n_b(n - 1);

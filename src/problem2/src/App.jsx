@@ -1,5 +1,4 @@
 import React from 'react';
-import './style.scss';
 import { FormSelect } from './components/FormSelect';
 import { FormTextBox } from './components/FormTextBox';
 import { IoMdSwap } from 'react-icons/io';

@@ -61,7 +61,7 @@ code {
             }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 1000px) {
             .header-content {
                 width: 100%;
 
@@ -176,7 +176,7 @@ code {
             }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 1000px) {
             width: 90%;
             height: 70vh;
 
@@ -246,7 +246,7 @@ code {
         color: #454545;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 1000px) {
         padding-top: 10px;
 
         input {
@@ -262,7 +262,7 @@ code {
     text-shadow: 5px 2px 4px black;
     margin-bottom: 5px;
 
-    @media (max-width: 700px) {
+    @media (max-width: 1000px) {
         font-size: 15px;
     }
 }

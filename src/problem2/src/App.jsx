@@ -2,24 +2,31 @@ import React from 'react';
 import { FormSelect } from './components/FormSelect';
 import { FormTextBox } from './components/FormTextBox';
 import { IoMdSwap } from 'react-icons/io';
-import { SelectAdapter_Currency, currency } from './currency';
+import { SelectAdapter_Currency, getData } from './currency';
 import T from './commont';
 
 export class App extends React.Component {
     constructor (props) {
         super(props);
-        this.state = { from: 0, currencyFrom: {}, to: 1, currencyTo: {}, rate: 0, nameFrom: '', nameTo: '', sourceMoney: null, targetMoney: null };
+        this.state = { from: 0, currency: {}, currencyFrom: {}, to: 1, currencyTo: {}, rate: 0, nameFrom: '', nameTo: '', sourceMoney: null, targetMoney: null };
     }
 
     componentDidMount() {
         const { from, to } = this.state;
-        this.setState({ rate: currency[from].rate / currency[to].rate }, () => {
-            const currencyFrom = SelectAdapter_Currency.find(item => item.value === from);
-            const currencyTo = SelectAdapter_Currency.find(item => item.value === to);
-            const nameFrom = currency.find(item => item.id === from).value;
-            const nameTo = currency.find(item => item.id === to).value;
-            this.setState({ currencyFrom, currencyTo, nameFrom, nameTo });
-        });
+        getData()
+            .then(data => {
+                if (data) {
+                    this.setState({ currency: data.currency, time: data.time }, () => {
+                        this.setState({ rate: data.currency[to].rate / data.currency[from].rate }, () => {
+                            const currencyFrom = SelectAdapter_Currency.find(item => item.value === from);
+                            const currencyTo = SelectAdapter_Currency.find(item => item.value === to);
+                            const nameFrom = data.currency[from].value;
+                            const nameTo = data.currency[to].value;
+                            this.setState({ currencyFrom, currencyTo, nameFrom, nameTo });
+                        });
+                    });
+                }
+            });
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -36,10 +43,10 @@ export class App extends React.Component {
     }
 
     selectCurrency = (e, type) => {
-        const { from, to } = this.state;
+        const { from, to, currency } = this.state;
         if (type === 0) {
             this.setState({ from: e.value }, () => {
-                const rate = currency[e.value].rate / currency[to].rate;
+                const rate = currency[to].rate / currency[e.value].rate;
                 this.setState({ rate }, () => {
                     const currencyFrom = SelectAdapter_Currency.find(item => item.value === e.value);
                     const nameFrom = currency.find(item => item.id === e.value).value;
@@ -54,7 +61,7 @@ export class App extends React.Component {
             });
         } else {
             this.setState({ to: e.value }, () => {
-                const rate = currency[from].rate / currency[e.value].rate;
+                const rate = currency[e.value].rate / currency[from].rate;
                 this.setState({ rate }, () => {
                     const currencyTo = SelectAdapter_Currency.find(item => item.value === e.value);
                     const nameTo = currency.find(item => item.id === e.value).value;
@@ -99,7 +106,8 @@ export class App extends React.Component {
     }
 
     render() {
-        const { currencyFrom, currencyTo, nameFrom, nameTo, sourceMoney, targetMoney } = this.state;
+        const { currencyFrom, currencyTo, nameFrom, nameTo, sourceMoney, targetMoney, time } = this.state;
+
         return (
             <div className='app'>
                 <header className='header'>
@@ -109,7 +117,7 @@ export class App extends React.Component {
                     </div>
                 </header>
                 <div className='content'>
-                    <div className='top-content'>Convert {nameFrom} to {nameTo} based on the actual exchange rate.</div>
+                    <div className='top-content'>Convert {nameFrom} to {nameTo} based on the actual exchange rate. <br /> (Real times)</div>
                     <div className='bottom-content'>
                         <div className='tile'>
                             <div className='tile-send'>
@@ -128,6 +136,9 @@ export class App extends React.Component {
                         </div>
                         <div className='result-content'>
                             <span>{T.numberDisplay(sourceMoney ? Number(sourceMoney.toFixed(3)) : 0) + ' ' + nameFrom + ' = ' + T.numberDisplay(targetMoney ? Number(targetMoney.toFixed(3)) : 0) + ' ' + nameTo}</span>
+                        </div>
+                        <div className='time-update'>
+                            <span style={{ fontWeight: 'bold' }}>Last updated:&nbsp;</span><span>{time}</span>
                         </div>
                     </div>
                 </div>

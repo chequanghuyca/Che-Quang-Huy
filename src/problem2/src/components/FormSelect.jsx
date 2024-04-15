@@ -92,9 +92,10 @@ export class FormSelect extends React.Component {
                         ...baseStyles,
                         cursor: 'pointer',
                         borderWidth: 2,
-                        border: state.menuIsOpen ? '2.5px solid #5c76ae !important' : '1px solid #b4b4b4 !important',
+                        border: state.menuIsOpen ? '2.5px solid #c6c6c6b8 !important' : '2.5px solid #715f3d69 !important',
                         boxShadow: 'none',
                         display: readOnly ? 'none' : 'flex',
+                        backgroundColor: '#96815b78'
                     });
                 },
                 option: (styles, { data, isFocused, isSelected }) => {

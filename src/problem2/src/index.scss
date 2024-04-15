@@ -57,6 +57,7 @@ code {
                 font-family: 'Rubik Doodle Shadow', cursive;
                 font-size: 22px;
                 font-weight: 600;
+                text-align: end;
             }
         }
 
@@ -169,7 +170,7 @@ code {
                 align-items: center;
                 justify-content: flex-end;
                 font-family: 'Quicksand', sans-serif;
-                color: rgb(27, 91, 193);
+                color: #1b5bc1;
                 margin-right: 20px;
                 font-size: 18px;
             }
@@ -177,6 +178,7 @@ code {
 
         @media (max-width: 700px) {
             width: 90%;
+            height: 70vh;
 
             .top-content {
                 font-size: 16px;
@@ -186,10 +188,21 @@ code {
                 .tile {
                     height: calc(70% - 15px);
                     width: calc(100% - 15px);
+                    flex-direction: column;
+
+                    .tile-send {
+                        width: 90%;
+                    }
+
+                    .tile-receive {
+                        width: 90%;
+                    }
 
                     .tile-center {
+                        height: 20px;
 
                         .icon-swap {
+                            color: #1b5bc1;
                             font-size: 30px;
                         }
                     }
@@ -213,22 +226,27 @@ code {
 
     input {
         width: 100%;
-        height: 60px;
+        height: 50px;
         font-size: 25px;
-        border: 2px solid #e9e9e9;
+        border: 2px solid #715f3d69;
         border-radius: 4px;
         padding-left: 10px;
         box-sizing: border-box;
         font-family: 'Quicksand', sans-serif;
-
-        @media (max-width: 700px) {
-            font-size: 20px;
-        }
+        background-color: #96815b78;
     }
 
     input:focus {
         outline: none;
-        border: 2.5px solid #5c76ae !important;
+        border: 2.5px solid #c6c6c6b8 !important;
+    }
+
+    @media (max-width: 700px) {
+        padding-top: 10px;
+
+        input {
+            font-size: 20px;
+        }
     }
 }
 
@@ -237,6 +255,7 @@ code {
     font-size: 18px;
     color: #e9e9e9;
     text-shadow: 5px 2px 4px black;
+    margin-bottom: 5px;
 
     @media (max-width: 700px) {
         font-size: 15px;

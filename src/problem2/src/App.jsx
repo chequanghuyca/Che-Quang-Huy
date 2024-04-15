@@ -108,16 +108,16 @@ export class App extends React.Component {
     render() {
         const { currencyFrom, currencyTo, nameFrom, nameTo, sourceMoney, targetMoney, time } = this.state;
 
-        return (
+        return <React.Fragment>
             <div className='app'>
                 <header className='header'>
                     <div className='header-content'>
                         <div className='left-content' />
-                        <div className='right-content'>CURRENCY CONVERTER TOOL</div>
+                        <div className='right-content'>CURRENCY CONVERTER TOOL<br /> Real times</div>
                     </div>
                 </header>
                 <div className='content'>
-                    <div className='top-content'>Convert {nameFrom} to {nameTo} based on the actual exchange rate. <br /> (Real times)</div>
+                    <div className='top-content'>Convert {nameFrom} to {nameTo} based on the actual exchange rate. </div>
                     <div className='bottom-content'>
                         <div className='tile'>
                             <div className='tile-send'>
@@ -143,6 +143,6 @@ export class App extends React.Component {
                     </div>
                 </div>
             </div>
-        );
+        </React.Fragment>;
     }
 }

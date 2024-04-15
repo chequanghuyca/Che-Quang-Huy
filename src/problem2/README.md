@@ -1,4 +1,4 @@
-# I have implemented Problem2 using ReactJS.
+# I have implemented Problem2 using ReactJS and data real times (cre: Exchange Rate API).
 
 I have deployed the project, you can view it directly at the link: (https://currencyswap.vercel.app)
 
@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Requirements to run the project:
 
-Use Nodejs environment from version 20 or higher
+Use Nodejs environment from version 14 or higher
 
 ## Available Scripts
 

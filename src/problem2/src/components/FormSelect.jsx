@@ -95,14 +95,16 @@ export class FormSelect extends React.Component {
                         border: state.menuIsOpen ? '2.5px solid #c6c6c6b8 !important' : '2.5px solid #715f3d69 !important',
                         boxShadow: 'none',
                         display: readOnly ? 'none' : 'flex',
-                        backgroundColor: '#96815b78'
+                        backgroundColor: '#96815b78',
+                        fontFamily: 'Aldrich',
                     });
                 },
                 option: (styles, { data, isFocused, isSelected }) => {
-                    const color = chroma(data.backgroundColor ? data.backgroundColor : '#1488db');
+                    const color = chroma(data.backgroundColor ? data.backgroundColor : '#dfb46acf');
 
                     return {
                         ...styles,
+                        fontFamily: 'Aldrich',
                         backgroundColor: (isFocused && !isSelected) ? color.alpha(0.4).css() : isSelected ? color.alpha(1).css() : '',
                     };
                 },

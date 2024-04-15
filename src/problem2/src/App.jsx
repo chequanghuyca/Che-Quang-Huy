@@ -138,7 +138,7 @@ export class App extends React.Component {
                             <span>{T.numberDisplay(sourceMoney ? Number(sourceMoney.toFixed(3)) : 0) + ' ' + nameFrom + ' = ' + T.numberDisplay(targetMoney ? Number(targetMoney.toFixed(3)) : 0) + ' ' + nameTo}</span>
                         </div>
                         <div className='time-update'>
-                            <span style={{ fontWeight: 'bold' }}>Last updated:&nbsp;</span><span>{time}</span>
+                            <span style={{ fontWeight: 'bold' }}>Last updated:&nbsp;</span><span style={{ fontStyle: 'italic' }}>{time}</span>
                         </div>
                     </div>
                 </div>

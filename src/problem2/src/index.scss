@@ -100,7 +100,7 @@ code {
             justify-content: center;
             align-items: center;
             text-align: center;
-            text-shadow: 6px 2px 5px black;
+            text-shadow: 6px 2px 5px rgb(31, 30, 30);
         }
 
         .bottom-content {
@@ -160,7 +160,7 @@ code {
                 font-size: 30px;
                 font-weight: bold;
                 color: #ff043a;
-                text-shadow: 3px 2px 3px #351e1e;
+                text-shadow: 3px 2px 3px #854a4a;
             }
 
             .time-update {
@@ -234,11 +234,16 @@ code {
         box-sizing: border-box;
         font-family: 'Quicksand', sans-serif;
         background-color: #96815b78;
+        color: #393939;
     }
 
     input:focus {
         outline: none;
         border: 2.5px solid #c6c6c6b8 !important;
+    }
+
+    input::placeholder {
+        color: #454545;
     }
 
     @media (max-width: 700px) {

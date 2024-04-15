@@ -1,17 +1,5 @@
 import axios from 'axios';
 
-export const currency = [
-    { id: 0, value: 'USD', label: 'United States Dollar' },
-    { id: 1, value: 'EUR', label: 'Euro' },
-    { id: 2, value: 'JPY', label: 'Japanese Yen' },
-    { id: 3, value: 'GBP', label: 'British Pound' },
-    { id: 4, value: 'AUD', label: 'Australian Dollar' },
-    { id: 5, value: 'CAD', label: 'Canadian Dollar' },
-    { id: 6, value: 'CHF', label: 'Swiss Franc' },
-    { id: 7, value: 'VND', label: 'Vietnamese Dong' },
-    { id: 8, value: 'SGD', label: 'Singapore Dollar' },
-];
-
 export const SelectAdapter_Currency = [
     { value: 0, label: 'United States Dollar (USD)' },
     { value: 1, label: 'Euro (EUR)' },
@@ -27,6 +15,18 @@ export const SelectAdapter_Currency = [
 export const getData = async () => {
     try {
         const response = await axios.get('https://v6.exchangerate-api.com/v6/c10625b1c049c8b59265c56b/latest/USD');
+
+        const currency = [
+            { id: 0, value: 'USD', label: 'United States Dollar' },
+            { id: 1, value: 'EUR', label: 'Euro' },
+            { id: 2, value: 'JPY', label: 'Japanese Yen' },
+            { id: 3, value: 'GBP', label: 'British Pound' },
+            { id: 4, value: 'AUD', label: 'Australian Dollar' },
+            { id: 5, value: 'CAD', label: 'Canadian Dollar' },
+            { id: 6, value: 'CHF', label: 'Swiss Franc' },
+            { id: 7, value: 'VND', label: 'Vietnamese Dong' },
+            { id: 8, value: 'SGD', label: 'Singapore Dollar' },
+        ];
 
         const updatedCurrency = currency.map(curr => ({
             ...curr,
